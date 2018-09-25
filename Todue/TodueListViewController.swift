@@ -10,7 +10,7 @@ import UIKit
 
 class TodueListViewController: UITableViewController {
     //Variables
-    let itemArray = ["Uni", "Personal", "Work"]
+    var itemArray = ["Uni", "Personal", "Work"]
     
     
     
@@ -45,7 +45,28 @@ class TodueListViewController: UITableViewController {
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    //MARK - Add new items button
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        var textField = UITextField()
+        
+        let alert = UIAlertController(title: "Add new Item", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
+            //what will happen once the user clicks the Add Item button
+          
+            self.itemArray.append(textField.text!)
+            self.tableView.reloadData()
+        }
+        
+        
     
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "Create new Item"
+            textField = alertTextField
+        }
+        
+         alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
     
 
 }
