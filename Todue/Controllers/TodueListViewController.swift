@@ -10,15 +10,30 @@ import UIKit
 
 class TodueListViewController: UITableViewController {
     //Variables
-    var itemArray = ["Uni", "Personal", "Work"]
-    let defaults = UserDefaults.standard()
+    var itemArray = [Item]()
+    let defaults = UserDefaults.standard
     
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let items = defaults.array(forKey:"ToDueListArray") as? [String]{
+        
+        let newItem = Item()
+        newItem.title = "Uni"
+        itemArray.append(newItem)
+        
+        let newItem2 = Item()
+        newItem2.title = "Personal"
+        itemArray.append(newItem2)
+
+        let newItem3 = Item()
+        newItem3.title = "Work"
+        itemArray.append(newItem3)
+
+        
+        
+        if let items = defaults.array(forKey:"ToDueListArray") as? [Item]{
             itemArray = items
         }
     }
@@ -31,20 +46,23 @@ class TodueListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ToDueItemCell", for: indexPath)
-        cell.textLabel?.text = itemArray[indexPath.row]
+        let item =  itemArray[indexPath.row]
         
+        cell.textLabel?.text = item.title
+        
+        //Ternary operator
+        cell.accessoryType = item.done ? .checkmark : .none
+ 
         return cell
     }
    
     
     //MARK - TableView Delegate Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //print(indexPath.row)
-        if  tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark{
-            tableView.cellForRow(at: indexPath)?.accessoryType = .none
-        }else{
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-        }
+        
+        itemArray[indexPath.row].done = !itemArray[indexPath.row].done
+        
+        tableView.reloadData()
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -52,26 +70,24 @@ class TodueListViewController: UITableViewController {
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         var textField = UITextField()
         
-        let alert = UIAlertController(title: "Add new Item", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add a new item", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
             //what will happen once the user clicks the Add Item button
-            self.itemArray.append(textField.text!)
             
-            self.defaults.set(self.itemArray, forKey: "ToDueListArray")
+            let newItem = Item()
+            newItem.title = textField.text!
             
-            
+            self.itemArray.append(newItem)
             self.tableView.reloadData()
         }
-        
-        
-    
-        alert.addTextField { (alertTextField) in
-            alertTextField.placeholder = "Create new Item"
-            textField = alertTextField
+       
+        alert.addTextField { (alertTF) in
+            alertTF.placeholder = "Type an new Item"
+            textField = alertTF
         }
-        
-         alert.addAction(action)
-        self.present(alert, animated: true, completion: nil)
+        alert.addAction(action)
+        self.present(alert,animated: true, completion: nil)
+    
     }
     
 
