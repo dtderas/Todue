@@ -14,9 +14,12 @@
 		610EB383215A695E00B2ECC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 610EB381215A695E00B2ECC0 /* LaunchScreen.storyboard */; };
 		610EB394215CE18E00B2ECC0 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 610EB392215CE18E00B2ECC0 /* DataModel.xcdatamodeld */; };
 		610EB3B7215D2BA900B2ECC0 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610EB3B6215D2BA900B2ECC0 /* CategoryViewController.swift */; };
+		659007A2928206B6979A186F /* Pods_Todue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05379F110FEB53AACAA69F60 /* Pods_Todue.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05379F110FEB53AACAA69F60 /* Pods_Todue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Todue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C3D51F975C07046CCF9178F /* Pods-Todue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todue.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Todue/Pods-Todue.debug.xcconfig"; sourceTree = "<group>"; };
 		610EB375215A695C00B2ECC0 /* Todue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		610EB378215A695C00B2ECC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		610EB37A215A695C00B2ECC0 /* TodueListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodueListViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		610EB384215A695E00B2ECC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		610EB393215CE18E00B2ECC0 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		610EB3B6215D2BA900B2ECC0 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		861A42B6252A9EAF29D346BC /* Pods-Todue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todue.release.xcconfig"; path = "Pods/Target Support Files/Pods-Todue/Pods-Todue.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				659007A2928206B6979A186F /* Pods_Todue.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CD2FA0581F109EC506F4A5F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				05379F110FEB53AACAA69F60 /* Pods_Todue.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		610EB36C215A695C00B2ECC0 = {
 			isa = PBXGroup;
 			children = (
 				610EB377215A695C00B2ECC0 /* Todue */,
 				610EB376215A695C00B2ECC0 /* Products */,
+				642D531D45EDDB24ECB9D1AC /* Pods */,
+				0CD2FA0581F109EC506F4A5F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +117,15 @@
 			path = "Supporting files";
 			sourceTree = "<group>";
 		};
+		642D531D45EDDB24ECB9D1AC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2C3D51F975C07046CCF9178F /* Pods-Todue.debug.xcconfig */,
+				861A42B6252A9EAF29D346BC /* Pods-Todue.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -109,9 +133,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 610EB387215A695E00B2ECC0 /* Build configuration list for PBXNativeTarget "Todue" */;
 			buildPhases = (
+				49FD5B2667E7144135F824F8 /* [CP] Check Pods Manifest.lock */,
 				610EB371215A695C00B2ECC0 /* Sources */,
 				610EB372215A695C00B2ECC0 /* Frameworks */,
 				610EB373215A695C00B2ECC0 /* Resources */,
+				0EB36F1288B33FF9DB63A753 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -167,6 +193,55 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0EB36F1288B33FF9DB63A753 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Todue/Pods-Todue-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Todue/Pods-Todue-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		49FD5B2667E7144135F824F8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Todue-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		610EB371215A695C00B2ECC0 /* Sources */ = {
@@ -318,6 +393,7 @@
 		};
 		610EB388215A695E00B2ECC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C3D51F975C07046CCF9178F /* Pods-Todue.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -336,6 +412,7 @@
 		};
 		610EB389215A695E00B2ECC0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 861A42B6252A9EAF29D346BC /* Pods-Todue.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
